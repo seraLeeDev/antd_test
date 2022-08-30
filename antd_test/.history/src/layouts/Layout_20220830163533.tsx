@@ -43,6 +43,7 @@ export const CustomLayout = () => {
           </Sider>
           <Layout style={{ padding: "20px" }}>
             <Content style={{ background: "#fff", padding: "20px" }}>
+              <p>asdasdfasdfasdf</p>
               <Space>
                 <Button type="primary">primary btn</Button>
                 <Button type="dashed">dashed btn</Button>

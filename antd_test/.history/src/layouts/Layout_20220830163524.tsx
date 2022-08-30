@@ -43,6 +43,7 @@ export const CustomLayout = () => {
           </Sider>
           <Layout style={{ padding: "20px" }}>
             <Content style={{ background: "#fff", padding: "20px" }}>
+              <p>asdasdfasdfasdf</p>
               <Space>
                 <Button type="primary">primary btn</Button>
                 <Button type="dashed">dashed btn</Button>
@@ -50,7 +51,7 @@ export const CustomLayout = () => {
                 <DatePicker />
               </Space>
             </Content>
-            <Footer style={{ background: "orange" }}>푸터</Footer>
+            <Footer style={{ background: "aliceblue" }}>푸터</Footer>
           </Layout>
         </Layout>
       </Layout>

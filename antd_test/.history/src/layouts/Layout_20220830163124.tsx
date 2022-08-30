@@ -26,23 +26,11 @@ export const CustomLayout = () => {
               theme="dark"
               mode="inline"
               defaultSelectedKeys={["1"]}
-              items={[
-                { key: "1", icon: <UserOutlined />, label: "nav1" },
-                {
-                  key: "2",
-                  icon: <VideoCameraOutlined />,
-                  label: "nav 2",
-                },
-                {
-                  key: "3",
-                  icon: <UploadOutlined />,
-                  label: "nav 3",
-                },
-              ]}
+              items={[{ key: "1", icon: <UserOutlined />, label: "nav1" }]}
             />
           </Sider>
-          <Layout style={{ padding: "20px" }}>
-            <Content style={{ background: "#fff", padding: "20px" }}>
+          <Layout>
+            <Content>
               <Space>
                 <Button type="primary">primary btn</Button>
                 <Button type="dashed">dashed btn</Button>
@@ -50,7 +38,7 @@ export const CustomLayout = () => {
                 <DatePicker />
               </Space>
             </Content>
-            <Footer style={{ background: "orange" }}>푸터</Footer>
+            <Footer>푸터</Footer>
           </Layout>
         </Layout>
       </Layout>

@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import Head from "next/head";
+
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -15,9 +15,6 @@ import Sider from "antd/lib/layout/Sider";
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>antd test</title>
-      </Head>
       <Layout>
         <Header style={{ background: "aliceblue" }}>
           <MenuFoldOutlined />

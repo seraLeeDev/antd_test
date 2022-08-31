@@ -9,12 +9,10 @@ const nextConfig = {
 
 module.exports = withAntdLess({
   // optional: you can modify antd less variables directly here
-  modifyVars: { "@primary-color": "#fc1150" },
-  // Or better still you can specify a path to a file
+  modifyVars: { "@primary-color": '"#fc1150' },
+
   lessVarsFilePath: "./styles/variables.less",
-  // optional
   lessVarsFilePathAppendToEndOfContent: false,
-  // optional https://github.com/webpack-contrib/css-loader#object
   cssLoaderOptions: {},
   ...nextConfig,
   webpack(config) {

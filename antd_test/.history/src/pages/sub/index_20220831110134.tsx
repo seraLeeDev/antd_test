@@ -12,12 +12,9 @@ import { Footer, Header, Content } from "antd/lib/layout/layout";
 import { Layout } from "antd";
 import Sider from "antd/lib/layout/Sider";
 
-const Home: NextPage = () => {
+const Sub: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>antd test</title>
-      </Head>
       <Layout>
         <Header style={{ background: "aliceblue" }}>
           <MenuFoldOutlined />
@@ -52,7 +49,7 @@ const Home: NextPage = () => {
                 <DatePicker />
               </Space>
             </Content>
-            <Footer>푸터</Footer>
+            <Footer style={{ background: "orange" }}>푸터</Footer>
           </Layout>
         </Layout>
       </Layout>
@@ -60,4 +57,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Sub;

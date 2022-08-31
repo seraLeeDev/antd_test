@@ -1,5 +1,6 @@
-import type { NextPage } from "next";
-import Head from "next/head";
+import React, { FC } from "react";
+import { MainWrapper } from "src/components/common/MainWrapper";
+import styled from "styled-components";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -12,13 +13,14 @@ import { Footer, Header, Content } from "antd/lib/layout/layout";
 import { Layout } from "antd";
 import Sider from "antd/lib/layout/Sider";
 
-const Home: NextPage = () => {
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+export const CustomLayout = ({ children }: LayoutProps) => {
   return (
     <>
-      <Head>
-        <title>antd test</title>
-      </Head>
-      <Layout>
+      {/* <Layout>
         <Header style={{ background: "aliceblue" }}>
           <MenuFoldOutlined />
         </Header>
@@ -52,12 +54,10 @@ const Home: NextPage = () => {
                 <DatePicker />
               </Space>
             </Content>
-            <Footer>푸터</Footer>
+            <Footer style={{ background: "orange" }}>푸터</Footer>
           </Layout>
         </Layout>
-      </Layout>
+      </Layout> */}
     </>
   );
 };
-
-export default Home;

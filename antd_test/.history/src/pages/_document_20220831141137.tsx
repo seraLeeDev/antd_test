@@ -1,4 +1,5 @@
-import Document, { DocumentContext, Html, Head, Main, NextScript } from "next/document";
+import Document, { DocumentContext, Html, Main, NextScript } from "next/document";
+import Head from "next/head";
 import { ServerStyleSheet } from "styled-components";
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -32,6 +33,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
+          <title>antd test</title>
           <meta name="author" content="대형폐기물 사진 한 장으로 배출 신고 ｜ 빼기" />
         </Head>
         <body>

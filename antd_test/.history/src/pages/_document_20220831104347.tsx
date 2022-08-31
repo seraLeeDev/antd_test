@@ -32,12 +32,12 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-          <meta name="author" content="대형폐기물 사진 한 장으로 배출 신고 ｜ 빼기" />
+          <title>antd test</title>
         </Head>
         <body>
           <Main />
-          <NextScript />
         </body>
+        <NextScript />
       </Html>
     );
   }

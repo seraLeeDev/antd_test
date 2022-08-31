@@ -8,14 +8,7 @@
         "style": true
       }
     ],
-    // [
-    //   "module-resolver",
-    //   {
-    //     "alias": {
-    //       "@": "./src"
-    //     }
-    //   }
-    // ], 이 코드가 있으면 적용되지 않음
+
     ["styled-components", { "ssr": true, "displayName": true, "preprocess": false }]
   ]
 }

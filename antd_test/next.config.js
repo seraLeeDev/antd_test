@@ -9,7 +9,7 @@ const nextConfig = {
 
 module.exports = withAntdLess({
   // optional: you can modify antd less variables directly here
-  modifyVars: { "@primary-color": "#fc1150" },
+  modifyVars: { "@primary-color": "#1F41FF" },
   // Or better still you can specify a path to a file
   lessVarsFilePath: "./styles/variables.less",
   // optional

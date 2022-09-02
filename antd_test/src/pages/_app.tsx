@@ -6,8 +6,12 @@ import type { AppProps } from "next/app";
 import { GlobalStyle, theme } from "src/configs";
 import { ThemeProvider } from "styled-components";
 import { CustomLayout } from "src/layouts";
+import { useDispatch } from "react-redux";
+
+import { wrapper } from "src/store";
 
 function App({ Component, pageProps }: AppProps) {
+  const dispatch = useDispatch();
   return (
     <>
       <GlobalStyle />
@@ -20,4 +24,4 @@ function App({ Component, pageProps }: AppProps) {
   );
 }
 
-export default App;
+export default wrapper.withRedux(App);

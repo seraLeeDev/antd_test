@@ -13,7 +13,6 @@ import type { MenuProps } from "antd";
 import { Button, DatePicker, Space, Menu, Breadcrumb, Layout } from "antd";
 import { useAppDispatch, useAppSelector } from "src/hooks";
 import { increment } from "src/features/counter/counterSlice";
-import { useDispatch } from "react-redux";
 import type { RootState } from "src/store";
 
 const { Header, Content, Sider } = Layout;

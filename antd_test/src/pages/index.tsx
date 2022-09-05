@@ -11,8 +11,15 @@ import {
 import { Input, MenuProps } from "antd";
 
 import { Button, DatePicker, Space, Menu, Breadcrumb, Layout } from "antd";
-import { useAppDispatch, useAppSelector } from "src/hooks";
-import { increment, decrement, increseByAmount, decreseByAmount, resetToNum } from "src/store/slices/counterSlice";
+import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
+import {
+  increment,
+  decrement,
+  increseByAmount,
+  decreseByAmount,
+  resetToNum,
+  selectCount,
+} from "src/store/slices/counter";
 import type { RootState } from "src/store";
 
 const { Header, Content, Sider } = Layout;
@@ -37,7 +44,7 @@ const items2: MenuProps["items"] = [UserOutlined, LaptopOutlined, NotificationOu
 const Home: NextPage = () => {
   const [collapse, setCollapse] = useState(false);
   const dispatch = useAppDispatch();
-  const result = useAppSelector((state: RootState) => state.counter.value);
+  const result = useAppSelector(selectCount);
 
   const handleIncrement = () => dispatch(increment());
   const handleDecrement = () => dispatch(decrement());
@@ -74,7 +81,7 @@ const Home: NextPage = () => {
                 <Button type="dashed" onClick={handleDecrement}>
                   decrease
                 </Button>
-                <h1>{result}</h1>
+
                 <Button type="primary" onClick={handleIncrement}>
                   increase
                 </Button>
@@ -84,13 +91,11 @@ const Home: NextPage = () => {
                 <Button type="link" onClick={() => dispatch(decreseByAmount(10))}>
                   decrease 10
                 </Button>
-                <Input.Group compact>
-                  <Input style={{ width: "100px" }}></Input>
-                  <Button type="primary" onClick={() => handleReset(0)}>
-                    reset
-                  </Button>
-                </Input.Group>
 
+                <Button type="ghost">{result}</Button>
+                <Button type="primary" onClick={() => handleReset(0)}>
+                  reset
+                </Button>
                 <DatePicker />
               </Space>
             </Content>

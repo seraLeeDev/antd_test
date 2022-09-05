@@ -1,9 +1,9 @@
 import { combineReducers, AnyAction } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
-import counter, { CounterState } from "./counterSlice";
+import counter, { ICounter } from "./counter";
 
 export interface IState {
-  counter: CounterState;
+  counter: ICounter;
 }
 
 const rootReducer = (state: IState | undefined, action: AnyAction) => {

@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { wrapper } from "src/store";
 
 function App({ Component, pageProps }: AppProps) {
+  const dispatch = useDispatch();
   return (
     <>
       <GlobalStyle />

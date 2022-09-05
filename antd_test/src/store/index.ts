@@ -1,17 +1,18 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { createWrapper, Context } from "next-redux-wrapper";
-import CounterSlice from "src/store/slices/counterSlice";
+
+import slice from "./slices";
 
 const devMode = process.env.NODE_ENV === "development";
 
 export const store = configureStore({
-  reducer: {
-    counter: CounterSlice,
-  },
+  reducer: slice,
   devTools: devMode,
+  middleware: [...getDefaultMiddleware()],
 });
 
 const setupStore = (context: Context) => store;
+
 const makeStore = (context: Context) => setupStore(context);
 
 export const wrapper = createWrapper(makeStore, { debug: devMode });

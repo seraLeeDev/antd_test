@@ -15,10 +15,10 @@ export const counterSlice = createSlice({
   reducers: {
     increment: (state) => {
       console.log(state);
-      state.result += 1;
+      // state.result += 1;
     },
     decrement: (state) => {
-      state.result -= 1;
+      Number(state.result) - 1;
     },
     incrementByAmount: (state, action: PayloadAction<number>) => {
       state.result += action.payload;

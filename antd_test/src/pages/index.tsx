@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import {
   LaptopOutlined,
@@ -13,7 +13,6 @@ import type { MenuProps } from "antd";
 import { Button, DatePicker, Space, Menu, Breadcrumb, Layout } from "antd";
 import { useAppSelector, useAppDispatch } from "src/hooks/useStore";
 import { increment, decrement, incrementByAmount, selectCount } from "src/store/slices/counter";
-import { RootState } from "src/store";
 
 const { Header, Content, Sider } = Layout;
 
@@ -38,6 +37,8 @@ const Home: NextPage = () => {
   const [collapse, setCollapse] = useState(false);
   const dispatch = useAppDispatch();
   const result = useAppSelector(selectCount);
+  const handleCount = () => dispatch();
+
   return (
     <>
       <Head>
@@ -68,9 +69,8 @@ const Home: NextPage = () => {
               <Menu mode="horizontal" defaultSelectedKeys={["1"]} items={items1} />
               <Space style={{ margin: "30px 0" }}>
                 <h1>{result}</h1>
-                <Button type="primary" onClick={() => console.log(result)}>
-                  increase
-                </Button>
+
+                <Button type="primary">increase</Button>
                 <Button type="dashed">dashed btn</Button>
                 <Button type="ghost">ghost btn</Button>
                 <DatePicker />

@@ -11,8 +11,10 @@ import {
 import type { MenuProps } from "antd";
 
 import { Button, DatePicker, Space, Menu, Breadcrumb, Layout } from "antd";
-import { useAppSelector, useAppDispatch } from "src/hooks/useStore";
-import { increment, decrement, incrementByAmount, selectCount } from "src/store/slices/counter";
+import { useAppDispatch, useAppSelector } from "src/hooks";
+import { increment } from "src/features/counter/counterSlice";
+import { useDispatch } from "react-redux";
+import type { RootState } from "src/store";
 
 const { Header, Content, Sider } = Layout;
 
@@ -36,8 +38,9 @@ const items2: MenuProps["items"] = [UserOutlined, LaptopOutlined, NotificationOu
 const Home: NextPage = () => {
   const [collapse, setCollapse] = useState(false);
   const dispatch = useAppDispatch();
-  const result = useAppSelector(selectCount);
-  const handleCount = () => dispatch();
+  const result = useAppSelector((state: RootState) => state.counter.value);
+
+  const handleIncrement = () => dispatch(increment);
 
   return (
     <>
@@ -69,8 +72,9 @@ const Home: NextPage = () => {
               <Menu mode="horizontal" defaultSelectedKeys={["1"]} items={items1} />
               <Space style={{ margin: "30px 0" }}>
                 <h1>{result}</h1>
-
-                <Button type="primary">increase</Button>
+                <Button type="primary" onClick={() => dispatch(increment())}>
+                  increase
+                </Button>
                 <Button type="dashed">dashed btn</Button>
                 <Button type="ghost">ghost btn</Button>
                 <DatePicker />

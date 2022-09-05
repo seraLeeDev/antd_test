@@ -8,11 +8,11 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
-import type { MenuProps } from "antd";
+import { Input, MenuProps } from "antd";
 
 import { Button, DatePicker, Space, Menu, Breadcrumb, Layout } from "antd";
 import { useAppDispatch, useAppSelector } from "src/hooks";
-import { increment } from "src/features/counter/counterSlice";
+import { increment, decrement, increseByAmount, decreseByAmount, resetToNum } from "src/store/slices/counterSlice";
 import type { RootState } from "src/store";
 
 const { Header, Content, Sider } = Layout;
@@ -39,8 +39,9 @@ const Home: NextPage = () => {
   const dispatch = useAppDispatch();
   const result = useAppSelector((state: RootState) => state.counter.value);
 
-  const handleIncrement = () => dispatch(increment);
-
+  const handleIncrement = () => dispatch(increment());
+  const handleDecrement = () => dispatch(decrement());
+  const handleReset = (num: number) => dispatch(resetToNum(num));
   return (
     <>
       <Head>
@@ -70,12 +71,26 @@ const Home: NextPage = () => {
             <Content style={{ background: "#fff", padding: "20px" }}>
               <Menu mode="horizontal" defaultSelectedKeys={["1"]} items={items1} />
               <Space style={{ margin: "30px 0" }}>
+                <Button type="dashed" onClick={handleDecrement}>
+                  decrease
+                </Button>
                 <h1>{result}</h1>
-                <Button type="primary" onClick={() => dispatch(increment())}>
+                <Button type="primary" onClick={handleIncrement}>
                   increase
                 </Button>
-                <Button type="dashed">dashed btn</Button>
-                <Button type="ghost">ghost btn</Button>
+                <Button type="default" onClick={() => dispatch(increseByAmount(10))}>
+                  increase 10
+                </Button>
+                <Button type="link" onClick={() => dispatch(decreseByAmount(10))}>
+                  decrease 10
+                </Button>
+                <Input.Group compact>
+                  <Input style={{ width: "100px" }}></Input>
+                  <Button type="primary" onClick={() => handleReset(0)}>
+                    reset
+                  </Button>
+                </Input.Group>
+
                 <DatePicker />
               </Space>
             </Content>

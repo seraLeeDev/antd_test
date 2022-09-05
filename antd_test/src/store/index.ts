@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { createWrapper, Context } from "next-redux-wrapper";
-import CounterSlice from "src/features/counter/counterSlice";
+import CounterSlice from "src/store/slices/counterSlice";
 
 const devMode = process.env.NODE_ENV === "development";
 
